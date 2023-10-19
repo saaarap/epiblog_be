@@ -1,0 +1,100 @@
+GET http://localhost:5050/posts
+
+
+
+####
+POST http://localhost:5050/posts/create
+Content-Type: application/json
+
+{
+    "title": "post con referenza seconda prova", 
+    "category":"categoria",
+    "cover":"https://area-d.eu/wp-content/uploads/2016/04/default-img.gif",
+    "price":12,
+    "rate":1,
+    "author":"652422f24832da4f7f599098",
+    "content":"ciao"
+}
+
+####
+
+POST http://localhost:5050/posts/cloudUploads
+
+Content-Type: application/json
+
+{
+    "title": "post con referenza seconda prova", 
+    "category":"categoria",
+    "cover":"https://area-d.eu/wp-content/uploads/2016/04/default-img.gif",
+    "price":12,
+    "rate":1,
+    "author":"652422f24832da4f7f599098",
+    "content":"ciao"
+}
+
+
+####
+PATCH  http://localhost:5050/posts/update/652003aa223014645cef48aa
+Content-Type: application/json
+
+{
+    "title":"titolo modificato",
+    "category":"copia post modificiato",
+    "rate":"3"
+}
+
+
+####
+DELETE http://localhost:5050/posts/delete/652003aa223014645cef48aa
+
+
+
+####
+GET http://localhost:5050/users
+
+
+
+
+####
+POST http://localhost:5050/users/add
+Content-Type: application/json
+
+{
+    "firstName": "Sara" ,
+    "lastName":"Porcarelli",
+    "email":"marca@hotmail.it",
+    "password":"lamiapassword"
+}
+
+
+
+####
+PATCH http://localhost:5050/users/up/6523ff316594835cf37a1d07
+Content-Type: application/json
+
+{
+    "firstName": "Laura" ,
+    "lastName":"Porcarelli",
+    "email":"Porcarell2929292i@hotmail.it",
+    "password":"Porcarelli",
+    "role":"user"
+}
+
+
+####
+DELETE http://localhost:5050/users/del/6523ff316594835cf37a1d07
+
+
+
+####
+POST http://localhost:5050/login HTTP/1.1
+Content-Type: application/json
+
+{
+    "firstName": "Sara" ,
+    "lastName":"Porcarelli",
+    "email":"marca@hotmail.it",
+    "password":"lamiapassword2"
+}
+
+
