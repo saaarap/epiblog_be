@@ -4,7 +4,7 @@ const logger = require("./middlewares/logger");
 const postsRoute = require("./routes/posts");
 const usersRoute = require("./routes/users");
 const loginRoute = require("./routes/login");
-const githubRoute = require("./routes/github")
+const githubRoute = require("./routes/github");
 const path = require("path");
 require("dotenv").config();
 const cors = require("cors");

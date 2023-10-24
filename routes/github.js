@@ -39,21 +39,22 @@ passport.use(
 )
 )
 gh.get('/auth/github', passport.authenticate('github', {
-   scope: ['user:email']}), (req, res)=>{
-    const redirectUrl = `http://localhost:3000/success?user=${encodeURIComponent(JSON.stringify(req.user))}`
-    res.redirect(redirectUrl)
-   })
-
-gh.get('/auth/github/callback', passport.authenticate('github', {failureRedirect:'/'}), (req, res)=>{
-    const user = req.user
-    const token = jwt.sign(user, process.env.JWT_SECRET)
-    const redirectUrl = `http://localhost:3000/success?token=${encodeURIComponent(token)}`
-    res.redirect(redirectUrl)
-})
-
-gh.get('/success', (res, req)=>{
-    res.redirect('http://localhost:300/home')
-})
+    scope: ['user:email']}), (req, res) => {
+     const redirectUrl = `http://localhost:3000/success?user=${encodeURIComponent(JSON.stringify(req.user))}`
+     res.redirect(redirectUrl);
+ });
+ 
+ gh.get('/auth/github/callback', passport.authenticate('github', { failureRedirect: '/' }), (req, res) => {
+     const user = req.user;
+     const token = jwt.sign(user, process.env.JWT_SECRET);
+     const redirectUrl = `http://localhost:3000/success/${encodeURIComponent(token)}`;
+     res.redirect(redirectUrl);
+ });
+ 
+ gh.get('/success', (req, res) => {
+     res.redirect('http://localhost:3000/home');
+ });
+ 
 
 
 
